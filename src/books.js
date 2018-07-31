@@ -38,6 +38,14 @@ class Books extends  Component {
                                     )}
                                 </ol>
                             </div>
+                            <h2 className="bookshelf-title">Read</h2>
+                            <div className="bookshelf-books">
+                                <ol className="books-grid">
+                                    {books.filter((books) => books.shelf === 'read').map((books) =>
+                                        <List  key={books.id} books={books}/>
+                                    )}
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
