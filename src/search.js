@@ -4,8 +4,15 @@ import { Link } from "react-router-dom"
 class Search extends Component {
     render() {
         return (
-            <div>
-                Search page
+            <div className='search-books'>
+                <div className='search-books-bar'>
+                    <div className='search-books-input-wrapper'>
+                        <input
+                            type='text'
+                            placeholder='Search by title or author'
+                        />
+                    </div>
+                </div>
             </div>
         )
     }
