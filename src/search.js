@@ -13,6 +13,11 @@ class Search extends Component {
                         />
                     </div>
                 </div>
+                <div className='search-books-results'>
+                    <ol className='books-grid'>
+                        search books
+                    </ol>
+                </div>
             </div>
         )
     }
