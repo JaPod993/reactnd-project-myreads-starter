@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 import { Route } from "react-router-dom"
+import Books from "./books"
 
-class BooksApp extends React.Component {
+class BooksApp extends Component {
   render () {
     return (
         <div>
           <Route exact path = '/' render = {() => (
               <div>
-                Main page route
+              <Books/>
               </div>
           )}
           />
