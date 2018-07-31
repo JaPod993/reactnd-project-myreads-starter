@@ -6,13 +6,13 @@ import PropTypes from "prop-types";
 class Books extends  Component {
 
     static propTypes = {
-        books: PropTypes.array.isRequired
+        books: PropTypes.array.isRequired,
+        moveBooks: PropTypes.func.isRequired
     };
 
     render () {
-        console.log("This is my props",this.props);
 
-        const { books } = this.props;
+        const { books, moveBooks } = this.props;
 
         return (
             <div>
@@ -26,7 +26,11 @@ class Books extends  Component {
                             <div className="bookshelf-books">
                                 <ol className="books-grid">
                                     {books.filter((books) => books.shelf === 'currentlyReading').map((books) =>
-                                        <List  key={books.id} books={books}/>
+                                        <List
+                                            key={books.id}
+                                            books={books}
+                                            moveBooks={moveBooks}
+                                        />
                                     )}
                                 </ol>
                             </div>
@@ -34,7 +38,11 @@ class Books extends  Component {
                             <div className="bookshelf-books">
                                 <ol className="books-grid">
                                     {books.filter((books) => books.shelf === 'wantToRead').map((books) =>
-                                        <List  key={books.id} books={books}/>
+                                        <List
+                                            key={books.id}
+                                            books={books}
+                                            moveBooks={moveBooks}
+                                        />
                                     )}
                                 </ol>
                             </div>
@@ -42,7 +50,11 @@ class Books extends  Component {
                             <div className="bookshelf-books">
                                 <ol className="books-grid">
                                     {books.filter((books) => books.shelf === 'read').map((books) =>
-                                        <List  key={books.id} books={books}/>
+                                        <List
+                                            key={books.id}
+                                            books={books}
+                                            moveBooks={moveBooks}
+                                        />
                                     )}
                                 </ol>
                             </div>
