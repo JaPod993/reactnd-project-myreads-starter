@@ -11,6 +11,8 @@ class List extends Component {
 
         console.log('props form list', this.props);
 
+        const { books } = this.props;
+
         return (
             <li>
                 <div className='book'>

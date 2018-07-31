@@ -12,30 +12,28 @@ class BooksApp extends Component {
   };
 
   componentDidMount() {
-    this.getBooks();
+    this.getMyBooks();
   }
 
-  getBooks() {
+  getMyBooks() {
     BooksAPI.getAll().then((books) => {
       this.setState({books});
       console.log('My books are', this.state.books)
     });
   }
 
+
+
   render () {
     return (
         <div>
           <Route exact path = '/' render = {() => (
-              <div>
               <Books books={this.state.books}/>
-              </div>
           )}
           />
 
           <Route exact path = '/search' render = {() => (
-              <div>
-                  <Search/>
-              </div>
+              <Search/>
           )}
           />
         </div>
