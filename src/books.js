@@ -25,7 +25,7 @@ class Books extends  Component {
                             <h2 className="bookshelf-title">Currently Reading</h2>
                             <div className="bookshelf-books">
                                 <ol className="books-grid">
-                                    {books.map((books) =>
+                                    {books.filter((books) => books.shelf === 'currentlyReading').map((books) =>
                                         <List  key={books.id} books={books}/>
                                     )}
                                 </ol>
@@ -33,7 +33,7 @@ class Books extends  Component {
                             <h2 className="bookshelf-title">Want To Read</h2>
                             <div className="bookshelf-books">
                                 <ol className="books-grid">
-                                    {books.map((books) =>
+                                    {books.filter((books) => books.shelf === 'wantToRead').map((books) =>
                                         <List  key={books.id} books={books}/>
                                     )}
                                 </ol>

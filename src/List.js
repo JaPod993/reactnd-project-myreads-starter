@@ -9,8 +9,6 @@ class List extends Component {
 
     render() {
 
-        console.log('props form list', this.props);
-
         const { books } = this.props;
 
         return (
