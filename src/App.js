@@ -11,7 +11,7 @@ class BooksApp extends Component {
     books: []
   };
 
-  componetDidMount() {
+  componentDidMount() {
     this.getBooks();
   }
 
