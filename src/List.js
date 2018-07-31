@@ -1,12 +1,25 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 
 class List extends Component {
+
+    static propTypes = {
+      books: PropTypes.object.isRequired
+    };
+
     render() {
+
+        console.log('props form list', this.props);
+
         return (
             <li>
                 <div className='book'>
                     <div className='book-top'>
-                        <div className='book-cover' style={{ width: 128, height: 193, backgroundImage: 'url("http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api")' }}>
+                        <div className='book-cover'>
+                            <img
+                                src={books.imageLinks.thumbnail}
+                                alt={`book cover of ${books.title}`}
+                            />
                         </div>
                         <div className='book-shelf-changer'>
                             <select>
@@ -19,10 +32,10 @@ class List extends Component {
                         </div>
                     </div>
                     <div className='book-title'>
-                        To Kill a Mockingbird
+                        {books.title}
                     </div>
                     <div className='book-authors'>
-                        Harper Lee
+                        {books.authors}
                     </div>
                 </div>
             </li>
