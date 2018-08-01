@@ -12,16 +12,19 @@ class Search extends Component {
     };
 
     state = {
-        query: [],
         fetched: []
     };
 
     fetch = (event) => {
         const query = event.target.value.trim();
-        this.setState({query});
 
         if (query) {
             BooksAPI.search(query).then((books) => {
+                books.map((book) => {
+                    this.props.books.map((pbook) => {
+                        (pbook.id === book.id ? book.shelf = pbook.shelf : "none");
+                    })
+                })
                 (books instanceof Array) ? this.setState({fetched: books}) : this.setState({fetched: []})
             });
             console.log('Query:', query);

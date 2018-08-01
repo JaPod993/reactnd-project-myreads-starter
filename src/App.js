@@ -12,10 +12,10 @@ class BooksApp extends Component {
   };
 
   componentDidMount() {
-    this.getMyBooks();
+    this.getBooks();
   }
 
-  getMyBooks() {
+  getBooks() {
     BooksAPI.getAll().then((books) => {
       this.setState({books});
       console.log('My books are', this.state.books)
@@ -24,8 +24,7 @@ class BooksApp extends Component {
 
   moveBooks = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
-        book.shelf = shelf;
-        this.setState(this.state);
+        this.getBooks();
         console.log(`Book ${book.title} moved to ${shelf}`);
     })
   };
