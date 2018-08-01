@@ -20,15 +20,8 @@ class Search extends Component {
 
         if (query) {
             BooksAPI.search(query).then((books) => {
-                books.map((book) => {
-                    this.props.books.map((pbook) => {
-                        (pbook.id === book.id ? book.shelf = pbook.shelf : "none");
-                    })
-                })
-                (books instanceof Array) ? this.setState({fetched: books}) : this.setState({fetched: []})
+                (books instanceof Array) ? this.setState({fetched: books}) : this.setState({fetched: []});
             });
-            console.log('Query:', query);
-            console.log('fetched', this.state.fetched);
         }
     };
 
@@ -37,27 +30,29 @@ class Search extends Component {
         const {moveBooks} = this.props;
 
         return (
-            <div className='search-books'>
-                <div className='search-books-bar'>
-                    <Link className='close-search' to='/'>Back</Link>
-                    <div className='search-books-input-wrapper'>
-                        <input
-                            type='text'
-                            placeholder='Search by title or author'
-                            onChange={this.fetch}
-                        />
-                    </div>
-                </div>
-                <div className='search-books-results'>
-                    <ol className='books-grid'>
-                        {this.state.fetched.map(book => (
-                            <List
-                                key= {book.id}
-                                books={book}
-                                moveBooks={moveBooks}
+            <div>
+                <div className='search-books'>
+                    <div className='search-books-bar'>
+                        <Link className='close-search' to='/'>Back</Link>
+                        <div className='search-books-input-wrapper'>
+                            <input
+                                type='text'
+                                placeholder='Search by title or author'
+                                onChange={this.fetch}
                             />
-                        ))}
-                    </ol>
+                        </div>
+                    </div>
+                    <div className='search-books-results'>
+                        <ol className='books-grid'>
+                            {this.state.fetched.map(book => (
+                                <List
+                                    key= {book.id}
+                                    books={book}
+                                    moveBooks={moveBooks}
+                                />
+                            ))}
+                        </ol>
+                    </div>
                 </div>
             </div>
         )

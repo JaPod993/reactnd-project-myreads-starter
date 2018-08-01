@@ -13,7 +13,7 @@ class BooksApp extends Component {
 
   componentDidMount() {
     this.getBooks();
-  };//
+  };
 
   // fetching books form api
   getBooks() {

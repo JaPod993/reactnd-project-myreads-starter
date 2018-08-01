@@ -17,7 +17,7 @@ class Books extends  Component {
         return (
             <div>
                 <div className="list-books-title">
-                    <h1>MyReads</h1>
+                    <h1>MyReads Udacity Project</h1>
                 </div>
                 <div className="list-books-content">
                     <div>
