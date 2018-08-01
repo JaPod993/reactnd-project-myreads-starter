@@ -13,20 +13,20 @@ class BooksApp extends Component {
 
   componentDidMount() {
     this.getBooks();
-  }
+  };//
 
+  // fetching books form api
   getBooks() {
     BooksAPI.getAll().then((books) => {
       this.setState({books});
-      console.log('My books are', this.state.books)
+      console.log('My books are', this.state.books)//
     });
-  }
+  };//
 
+  // Moving books to shelfs
   moveBooks = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(() => {
-        this.getBooks();
-        console.log(`Book ${book.title} moved to ${shelf}`);
-    })
+      BooksAPI.update(book, shelf).then(() => this.getBooks());
+      console.log(`Book ${book.title} moved to ${shelf}`);//
   };
 
   render () {
