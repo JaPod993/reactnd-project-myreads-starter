@@ -18,7 +18,7 @@ class List extends Component {
                     <div className='book-top'>
                         <div className='book-cover'>
                             <img
-                                src={books.imageLinks ? books.imageLinks.thumbnail : "Zno_image.jpg"}
+                                src={books.imageLinks ? books.imageLinks.thumbnail : "no_image.jpg"}
                                 alt={books.title}
                             />
                         </div>

@@ -25,7 +25,12 @@ class BooksApp extends Component {
 
   // Moving books to shelfs
   moveBooks = (book, shelf) => {
-      BooksAPI.update(book, shelf).then(() => this.getBooks());
+      // this part was suggested in my udacity review, thank you for this
+      BooksAPI.update(book, shelf);
+      book.shelf = shelf;
+      this.setState(state => ({
+          books: state.books.filter(b => b.id !== book.id).concat(book),
+      }));
       console.log(`Book ${book.title} moved to ${shelf}`);//
   };
 
